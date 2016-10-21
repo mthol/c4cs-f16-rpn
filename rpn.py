@@ -29,6 +29,10 @@ def calculate(myarg):
 		raise TypeError("Too many parameters")
 	return stack.pop()
 
+def testcoverage():
+	cprint('This never runs so coverage should go down', 'red')
+	return False
+
 def main():
 	while True:
 		result = calculate(input("rpn calc> "))
