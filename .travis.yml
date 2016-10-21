@@ -1,4 +1,5 @@
 language: python
 python:
 - 3.5
+before_script: sudo pip install termcolor
 script: python test_rpn.py
