@@ -22,7 +22,6 @@ def calculate(myarg):
 	if int(printing[1]) < 0:
 		second = colored(printing[1]+' ', 'red')
 
-	print(first + second + third)
 	stack = list()
 	for token in myarg.split():
 		try:
@@ -37,6 +36,9 @@ def calculate(myarg):
 		cprint(stack, 'yellow')
 	if len(stack) != 1:
 		raise TypeError("Too many parameters")
+	else:
+		print(first + second + third)
+		
 	return stack.pop()
 
 def testcoverage():
