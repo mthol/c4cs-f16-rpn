@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-import operator
+import operator, readline
+from termcolor import *
 
 
 operators = {
@@ -8,7 +9,7 @@ operators = {
 	'-': operator.sub,
 	'*': operator.mul,
 	'/': operator.truediv,
-	'^': operator.pow
+	'^': operator.pow,
 }
 
 def calculate(myarg):
@@ -23,7 +24,7 @@ def calculate(myarg):
 			arg1 = stack.pop()
 			result = function(arg1, arg2)
 			stack.append(result)
-		print(stack)
+		cprint(stack, 'red')
 	if len(stack) != 1:
 		raise TypeError("Too many parameters")
 	return stack.pop()
@@ -31,7 +32,9 @@ def calculate(myarg):
 def main():
 	while True:
 		result = calculate(input("rpn calc> "))
-		print("Result: ", result)
+		text = colored('Result: ', 'cyan')
+		text2 = colored(str(result), 'cyan')
+		print(text + text2)
 
 if __name__ == '__main__':
 	main()
