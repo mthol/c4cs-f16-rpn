@@ -13,6 +13,16 @@ operators = {
 }
 
 def calculate(myarg):
+	printing = myarg.split()
+	first = colored(printing[0]+' ', 'blue')
+	second = colored(printing[1]+' ', 'blue')
+	third = colored(printing[2], 'green')
+	if int(printing[0]) < 0:
+		first = colored(printing[0]+' ', 'red')
+	if int(printing[1]) < 0:
+		second = colored(printing[1]+' ', 'red')
+
+	print(first + second + third)
 	stack = list()
 	for token in myarg.split():
 		try:
@@ -24,7 +34,7 @@ def calculate(myarg):
 			arg1 = stack.pop()
 			result = function(arg1, arg2)
 			stack.append(result)
-		cprint(stack, 'red')
+		cprint(stack, 'yellow')
 	if len(stack) != 1:
 		raise TypeError("Too many parameters")
 	return stack.pop()
